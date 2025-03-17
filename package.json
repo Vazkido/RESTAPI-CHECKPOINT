@@ -2,9 +2,10 @@
   "name": "restapi-checkpoint",
   "version": "1.0.0",
   "description": "",
-  "main": "user.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -13,9 +14,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Vazkido/RESTAPI-CHECKPOINT/issues"
   },
-  "homepage": "https://github.com/Vazkido/RESTAPI-CHECKPOINT#readme"
+  "homepage": "https://github.com/Vazkido/RESTAPI-CHECKPOINT#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1",
+    "nodemon": "^3.1.9"
+  }
 }

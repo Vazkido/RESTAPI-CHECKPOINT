@@ -47,7 +47,16 @@ app
     }
   })
   .put(async (req, res) => {
-    const {name, age, email} = req.body
+    const { name, age, email } = req.body;
+    try {
+      if (!email || (!name && !age)) {
+        return res.status(400).send("Email and one other field is required")
+        
+      }
+      
+    } catch (error) {
+      
+    }
   })
   .delete();
 

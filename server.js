@@ -1,6 +1,7 @@
 import express from "express";
 
 import { User } from "./models/User.js";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config({ path: "./config/.env" });
 
@@ -45,7 +46,9 @@ app
       res.status(500).send("Server is down");
     }
   })
-  .put()
+  .put(async (req, res) => {
+    const {name, age, email} = req.body
+  })
   .delete();
 
 app.listen(port, () => {

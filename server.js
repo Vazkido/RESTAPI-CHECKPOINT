@@ -53,6 +53,15 @@ app
         return res.status(400).send("Email and one other field is required")
         
       }
+      const user = await User.findOne({email});
+      if (!user) {
+        return res.status(404).send("User Not Found");
+      } 
+      user.name = name || user.name
+      user.age = age || user.age
+
+      await user.save()
+      res.send("user has been updated")
       
     } catch (error) {
       

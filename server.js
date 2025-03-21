@@ -62,11 +62,12 @@ app
 
       await user.save()
       res.send("user has been updated")
-      
     } catch (error) {
-      
+      res.send(500).send("Server is down" + error.message);
     }
   })
+
+  
   .delete();
 
 app.listen(port, () => {

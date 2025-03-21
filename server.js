@@ -72,7 +72,18 @@ app
     res.send("Welcome To Rest Api " + name);
   })
 
-  .delete();
+  app.delete("/:id", async(res, req) => {
+    const {id} = req.query
+    try{
+      const user = await User.findById(id)
+      if (!user) {
+        return res.status(404).send("User Not Found");
+      }
+      await user.deleteOne() 
+        await User.findByIdAndDelete(id)
+        res.send("User has been deleted")
+    }
+  });
 
 app.listen(port, () => {
   console.log("Server is Running Live");

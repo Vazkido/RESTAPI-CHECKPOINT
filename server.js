@@ -82,6 +82,8 @@ app
       await user.deleteOne() 
         await User.findByIdAndDelete(id)
         res.send("User has been deleted")
+    } catch {
+      res.status(500).send("Server is down" + error.message);
     }
   });
 
